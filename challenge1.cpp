@@ -345,54 +345,65 @@ undefined8 main(void)
 {
   basic_ostream *resultoutput;
   long j;
-  undefined8 *loopnum;
+  double *loopnum; //double //originally undefined8
   long offsetvar;
   int i;
   undefined8 input1;
-  undefined8 zero1;
-  undefined8 bignum1;
-  undefined8 bignum2;
-  undefined8 bignum3;
-  undefined8 bignum4;
-  undefined8 bignum5;
-  undefined8 bignum6;
-  undefined8 bignum7;
-  undefined8 bignum8;
-  undefined8 bignum9;
-  undefined8 bignum10;
-  undefined8 bignum11;
-  undefined8 bignum12;
-  undefined8 zero2;
-  undefined8 zero3;
-  undefined8 input2 [17];
+
+  //miguels reversal work
+  double zero1 = 0.0; 
+  double bignum1 = 1.0;
+  double bignum2 = 1.0;
+  double bignum3 = 3.0;
+  double bignum4 = 3.0;
+  double bignum5 = 4.0;
+  double bignum6 = 4.0;
+  double bignum7 = 4.0;
+  double bignum8 = 4.0;
+  double bignum9 = 3.0;
+  double bignum10 = 3.0;
+  double bignum11 = 1.0;
+  double bignum12 = 1.0;
+  double zero2 = 0.0;
+  double zero3 = 0.0;
+
+
+  undefined8 input2 [17]; //double
   long conditionalvar;
   
   conditionalvar = *(long *)(offsetvar + 0x28);
-  input1 = 0;
-  zero1 = 0;
-  bignum1 = 4607182418800017408;
-  bignum2 = 4607182418800017408;
-  bignum3 = 4613937818241073152;
-  bignum4 = 4613937818241073152;
-  bignum5 = 4616189618054758400;
-  bignum6 = 4616189618054758400;
-  bignum7 = 4616189618054758400;
-  bignum8 = 4616189618054758400;
-  bignum9 = 4613937818241073152;
-  bignum10 = 4613937818241073152;
-  bignum11 = 4607182418800017408;
-  bignum12 = 4607182418800017408;
-  zero2 = 0;
-  zero3 = 0;
+
+  //orginal decompile
+  // input1 = 0;
+  // zero1 = 0; //doubles
+  // bignum1 = 4607182418800017408; //doubles
+  // bignum2 = 4607182418800017408; //doubles
+  // bignum3 = 4613937818241073152; //doubles
+  // bignum4 = 4613937818241073152; //doubles
+  // bignum5 = 4616189618054758400; //doubles
+  // bignum6 = 4616189618054758400; //doubles
+  // bignum7 = 4616189618054758400; //doubles
+  // bignum8 = 4616189618054758400; //doubles
+  // bignum9 = 4613937818241073152; //doubles
+  // bignum10 = 4613937818241073152; //doubles
+  // bignum11 = 4607182418800017408; //doubles
+  // bignum12 = 4607182418800017408; //doubles
+  // zero2 = 0; //doubles
+  // zero3 = 0; //doubles
   loopnum = input2;
-  for (j = 16; j != 0; j = j + -1) {
+  for (j = 16; j != 0; j = j -1) { // setting array to 0;
     *loopnum = 0;
     loopnum = loopnum + 1;
   }
+
+  //fft function call
   fft<std::complex<double>*>((complex *)&input1,(complex *)input2,3);
+  
   for (i = 0; i < 8; i = i + 1) {
-    resultoutput = std::operator<<((basic_ostream *)std::cout,(complex *)(input2 + (long)i * 2));
-    std::operator<<(resultoutput,"\n");
+    // resultoutput = std::operator<<((basic_ostream *)std::cout,(complex *)(input2 + (long)i * 2));
+    // std::operator<<(resultoutput,"\n");
+
+
   }
   if (conditionalvar != *(long *)(offsetvar + 40)) {
                     /* WARNING: Subroutine does not return */
